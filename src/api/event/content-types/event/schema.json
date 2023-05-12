@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Events",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 60,
+      "minLength": 5,
+      "required": true
+    },
+    "shortDescription": {
+      "type": "string",
+      "maxLength": 160,
+      "minLength": 20,
+      "required": true
+    },
+    "longDescription": {
+      "type": "text",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "eventDeadline": {
+      "type": "date"
+    },
+    "applicationLink": {
+      "type": "string",
+      "required": false
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "events"
+    },
+    "interests": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::interest.interest",
+      "inversedBy": "events"
+    },
+    "eventType": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event-type.event-type",
+      "inversedBy": "events"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "events"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "availableSpots": {
+      "type": "integer"
+    },
+    "requirements": {
+      "type": "text",
+      "required": true
+    },
+    "thumbnailUrl": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "learnMoreUrl": {
+      "type": "string"
+    }
+  }
+}

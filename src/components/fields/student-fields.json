@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_fields_student_fields",
+  "info": {
+    "displayName": "studentFields",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "interests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::interest.interest"
+    },
+    "event_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-type.event-type"
+    }
+  }
+}
